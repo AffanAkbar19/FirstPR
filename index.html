@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FirstPR: Your first step into open source</title>
+  <meta name="description" content="FirstPR helps beginners find open issues in public GitHub repositories, see the ones marked for newcomers first, and follow a clear guide to their first pull request.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F1110" media="(prefers-color-scheme: dark)">
+
+  <!-- Social sharing (LinkedIn, X, WhatsApp and others read these tags) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FirstPR">
+  <meta property="og:title" content="FirstPR: Your first step into open source">
+  <meta property="og:description" content="Find beginner-friendly GitHub issues and follow a clear, honest guide to your first pull request.">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="FirstPR: Your first step into open source.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FirstPR: Your first step into open source">
+  <meta name="twitter:description" content="Find beginner-friendly GitHub issues and follow a clear, honest guide to your first pull request.">
+  <meta name="twitter:image" content="assets/og-image.png">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- The fonts are stored with the site (see style.css), so the page makes no requests to font services -->
+  <link rel="stylesheet" href="style.css">
+  <!-- "defer" runs script.js after the page has loaded -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ========== NAVIGATION ========== -->
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Main">
+      <a class="brand" href="./">
+        <svg class="brand-mark" viewBox="0 0 22 22" aria-hidden="true" focusable="false">
+          <rect class="brand-cell brand-cell-first" x="0" y="0" width="6" height="6" rx="1.6" />
+          <rect class="brand-cell" x="8" y="0" width="6" height="6" rx="1.6" />
+          <rect class="brand-cell" x="16" y="0" width="6" height="6" rx="1.6" />
+          <rect class="brand-cell" x="0" y="8" width="6" height="6" rx="1.6" />
+          <rect class="brand-cell" x="8" y="8" width="6" height="6" rx="1.6" />
+          <rect class="brand-cell" x="16" y="8" width="6" height="6" rx="1.6" />
+          <rect class="brand-cell" x="0" y="16" width="6" height="6" rx="1.6" />
+          <rect class="brand-cell" x="8" y="16" width="6" height="6" rx="1.6" />
+          <rect class="brand-cell" x="16" y="16" width="6" height="6" rx="1.6" />
+        </svg>
+        <span>FirstPR</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#founder">Founder</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ========== HERO: headline and repository search ========== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <h1 id="hero-title" class="hero-title">Your first step into <span class="nowrap">open source<span class="brand-dot">.</span></span></h1>
+        <p class="hero-lead">FirstPR finds open issues in any public GitHub repository, puts the ones maintainers marked for newcomers first, and walks you through your first pull request.</p>
+
+        <!-- "novalidate": script.js checks the link itself and shows a clear message -->
+        <form id="repo-form" class="search" role="search" novalidate>
+          <label class="visually-hidden" for="repo-url">GitHub repository link</label>
+          <div class="search-field">
+            <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+              <path d="M4.5 3.5a1 1 0 0 1 1-1h10v12h-10a1 1 0 0 0-1 1v-12Z" />
+              <path d="M4.5 15.5a1 1 0 0 0 1 1h10" />
+              <path d="M8 6.5h4.5" />
+            </svg>
+            <input id="repo-url" name="repo-url" type="text" inputmode="url" autocomplete="off"
+                   autocapitalize="off" spellcheck="false" placeholder="https://github.com/owner/repo"
+                   aria-describedby="repo-hint">
+            <button id="find-button" class="button button-primary search-button" type="submit">Find issues</button>
+          </div>
+          <!-- role="alert": screen readers read this out as soon as an error appears -->
+          <p id="repo-error" class="search-error" role="alert"></p>
+          <p id="repo-hint" class="search-hint">Works with any public repository. No sign-in, no API key.</p>
+          <p id="hero-quota" class="quota" hidden></p>
+        </form>
+      </div>
+
+      <!-- Decoration: a branch leaves "main", gets two commits, and merges back as your first contribution -->
+      <svg class="journey" viewBox="0 0 1600 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <line class="journey-main" x1="0" y1="104" x2="1600" y2="104" />
+        <path class="journey-branch" pathLength="1" d="M640 104 C 700 104, 700 46, 760 46 L 840 46 C 900 46, 900 104, 960 104" />
+        <circle class="journey-commit" cx="200" cy="104" r="6" />
+        <circle class="journey-commit" cx="420" cy="104" r="6" />
+        <circle class="journey-commit" cx="640" cy="104" r="6" />
+        <circle class="journey-new journey-new-1" cx="775" cy="46" r="6" />
+        <circle class="journey-new journey-new-2" cx="825" cy="46" r="6" />
+        <rect class="journey-merge" x="949" y="93" width="22" height="22" rx="6" />
+        <circle class="journey-commit" cx="1180" cy="104" r="6" />
+        <circle class="journey-commit" cx="1400" cy="104" r="6" />
+        <text class="journey-label" x="694" y="136">main</text>
+        <text class="journey-label journey-label-branch" x="800" y="26" text-anchor="middle">your-first-pr</text>
+      </svg>
+    </section>
+
+    <!-- ========== RESULTS: script.js fills this in after a search ========== -->
+    <section id="results" class="results" aria-labelledby="results-title" hidden>
+      <div class="wrap">
+        <div class="results-head">
+          <div class="results-heading">
+            <h2 id="results-title" class="results-title"></h2>
+            <!-- role="status": screen readers read loading messages and result summaries -->
+            <p id="status" class="status" role="status" aria-live="polite"></p>
+          </div>
+          <p id="results-quota" class="quota quota-pill" hidden></p>
+        </div>
+
+        <div id="toolbar" class="toolbar" hidden>
+          <fieldset class="filters">
+            <legend class="visually-hidden">Show issues</legend>
+            <input type="radio" name="filter" id="filter-all" value="all" checked>
+            <label for="filter-all">All <span class="count" data-count="all">0</span></label>
+            <input type="radio" name="filter" id="filter-gfi" value="gfi">
+            <label for="filter-gfi">Good first issue <span class="count" data-count="gfi">0</span></label>
+            <input type="radio" name="filter" id="filter-hw" value="hw">
+            <label for="filter-hw">Help wanted <span class="count" data-count="hw">0</span></label>
+            <input type="radio" name="filter" id="filter-other" value="other">
+            <label for="filter-other">Other <span class="count" data-count="other">0</span></label>
+          </fieldset>
+        </div>
+        <p id="toolbar-note" class="toolbar-note" hidden>Labels come from each project's maintainers. They are useful signals, not a promise that an issue is easy.</p>
+
+        <div id="results-body" aria-busy="false"></div>
+      </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section id="how-it-works" class="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 id="how-title" class="section-title">How it works</h2>
+        <p class="section-lead">From a repository link to your first pull request, in three steps.</p>
+
+        <div class="steps-track">
+          <ol class="steps" role="list">
+            <li class="step">
+              <h3>Paste a repository</h3>
+              <p>Any public GitHub repository. FirstPR reads its open issues straight from GitHub's public API.</p>
+            </li>
+            <li class="step">
+              <h3>Pick an issue</h3>
+              <p>Issues labeled “good first issue” or “help wanted” come first. Filters help you narrow the list.</p>
+            </li>
+            <li class="step">
+              <h3>Follow your starter guide</h3>
+              <p>A clear path from reading the issue to opening your pull request, with commands you can copy.</p>
+            </li>
+          </ol>
+          <p class="steps-goal"><span class="goal-square" aria-hidden="true"></span>Your first pull request</p>
+        </div>
+
+        <div class="honest">
+          <div class="honest-col">
+            <h3 class="honest-title">What FirstPR does</h3>
+            <ul class="honest-list" role="list">
+              <li class="honest-yes">Reads open issues from public repositories using GitHub's REST API.</li>
+              <li class="honest-yes">Shows issues labeled “good first issue” or “help wanted” first, and leaves out pull requests.</li>
+              <li class="honest-yes">Builds a starter guide from each issue's title, description and labels, using simple rules.</li>
+              <li class="honest-yes">Checks whether the project has a contributing guide and links to it.</li>
+            </ul>
+          </div>
+          <div class="honest-col">
+            <h3 class="honest-title">What it doesn't do</h3>
+            <ul class="honest-list" role="list">
+              <li class="honest-no">It doesn't use AI, read the repository's code, or run tests.</li>
+              <li class="honest-no">It can't promise an issue is easy. Labels are the maintainers' signals.</li>
+              <li class="honest-no">It needs no sign-in or API key. Everything runs in your browser and talks only to GitHub's public API.</li>
+              <li class="honest-no">Without sign-in, GitHub allows 60 requests per hour per network. Each search uses 3 of them.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOUNDER ========== -->
+    <section id="founder" class="founder" aria-labelledby="founder-name">
+      <div class="wrap">
+        <div class="founder-card">
+          <div class="founder-id">
+            <span class="monogram" aria-hidden="true">AA</span>
+            <div>
+              <h2 id="founder-name" class="founder-name">Affan Akbar</h2>
+              <p class="founder-role">Founder &amp; Developer, FirstPR</p>
+              <p class="founder-background">Software Engineering student at NUST</p>
+            </div>
+          </div>
+          <div class="founder-body">
+            <blockquote class="founder-quote">
+              <p>FirstPR is built to make open source more approachable for beginners. The goal is to help new contributors discover potential issues, understand the contribution process, and take their first step into open source.</p>
+            </blockquote>
+            <ul class="founder-links" role="list">
+              <li>
+                <a class="contact-link" href="https://www.linkedin.com/in/affan-akbar-68a1a0350/" target="_blank" rel="noopener noreferrer">
+                  <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4V21H3V9.75Zm6.5 0h3.83v1.54h.05c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13V21h-4v-5.02c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.93 1.3-1.93 2.65V21h-4V9.75Z" />
+                  </svg>
+                  <span>LinkedIn</span>
+                  <span class="visually-hidden">(opens in a new tab)</span>
+                </a>
+              </li>
+              <li>
+                <a class="contact-link" href="mailto:affanbusinesswork19@gmail.com">
+                  <svg class="contact-icon contact-icon-line" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="3" y="5.5" width="18" height="13" rx="2.5" />
+                    <path d="m4 7.5 8 6 8-6" />
+                  </svg>
+                  <span>affanbusinesswork19@<wbr>gmail.com</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <p class="footer-name">FirstPR</p>
+        <p>Your first step into open source.</p>
+      </div>
+      <div class="footer-notes">
+        <p>FirstPR is an independent project. It is not affiliated with or endorsed by GitHub.</p>
+        <p>Issue data comes from the public GitHub REST API. Starter guides are rule-based.</p>
+        <p>© 2026 Affan Akbar. Released under the MIT License.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== STARTER GUIDE (opens as a panel; script.js fills it in) ========== -->
+  <dialog id="guide" class="sheet" aria-labelledby="guide-title">
+    <div class="sheet-panel">
+      <div class="sheet-bar">
+        <p class="sheet-kicker">Starter guide</p>
+        <button id="guide-close" class="icon-button" type="button" aria-label="Close guide">
+          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 4l8 8M12 4l-8 8" /></svg>
+        </button>
+      </div>
+      <div id="guide-content" class="sheet-body"></div>
+      <!-- Announces "Copied" and similar messages to screen readers -->
+      <p id="guide-announcer" class="visually-hidden" aria-live="polite"></p>
+    </div>
+  </dialog>
+
+  <noscript><p class="noscript">FirstPR needs JavaScript turned on to load issues from GitHub.</p></noscript>
+</body>
+</html>
